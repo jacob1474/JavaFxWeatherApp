@@ -4,14 +4,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.kasv.degro.worldappgui.HelloController">
    <children>
-      <ChoiceBox layoutX="207.0" layoutY="129.0" prefWidth="150.0" />
-      <Label layoutX="167.0" layoutY="54.0" text="World Explorer" textFill="#20d438">
+      <Label layoutX="185.0" layoutY="46.0" text="World Explorer" textAlignment="CENTER" textFill="#20d438">
          <font>
-            <Font size="35.0" />
+            <Font name="Britannic Bold" size="35.0" />
          </font>
       </Label>
+      <ChoiceBox fx:id="choiceBox" layoutX="204.0" layoutY="120.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: white; -fx-border-color: black;" />
    </children>
 </Pane>

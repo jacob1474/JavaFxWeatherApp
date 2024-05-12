@@ -1,14 +1,28 @@
 package sk.kasv.degro.worldappgui;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.ChoiceBox;
+import sk.kasv.degro.worldappgui.database.Service;
+
+import java.io.IOException;
 
 public class HelloController {
     @FXML
-    private Label welcomeText;
+    private ChoiceBox<String> choiceBox;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    public void initialize() {
+        ObservableList<String> options = Service.getAllCountries();
+        choiceBox.setItems(options);
+        // Add options to the ChoiceBox
+
+        // Set default selection
+        choiceBox.getSelectionModel().selectFirst();
+
+        // Add event listener if needed
+        choiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            // Handle selection change
+            System.out.println("Selected: " + newValue);
+        });
     }
 }

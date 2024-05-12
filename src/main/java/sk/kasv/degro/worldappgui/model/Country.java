@@ -13,7 +13,7 @@ public class Country {
         this.officialLanguage = officialLanguage;
     }
 
-    public Country(String name, String code2, String code3) {
+    public Country(String code3, String code2, String name) {
         this.name = name;
         this.code2 = code2;
         this.code3 = code3;
