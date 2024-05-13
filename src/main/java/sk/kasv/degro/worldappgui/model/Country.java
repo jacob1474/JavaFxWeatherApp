@@ -22,4 +22,12 @@ public class Country {
     public String getName() {
         return name;
     }
+
+    public String getCode2() {
+        return code2;
+    }
+
+    public String getCode3() {
+        return code3;
+    }
 }

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.kasv.degro.worldappgui.HelloController">
@@ -11,6 +12,30 @@
             <Font name="Britannic Bold" size="35.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="choiceBox" layoutX="204.0" layoutY="120.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: white; -fx-border-color: black;" />
+      <ChoiceBox fx:id="choiceBox" layoutX="204.0" layoutY="93.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: white; -fx-border-color: black;" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="180.0" layoutX="88.0" layoutY="189.0" stroke="BLACK" strokeType="INSIDE" width="424.0" />
+      <ChoiceBox fx:id="choiceBoxTwo" layoutX="204.0" layoutY="141.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: white; -fx-border-color: black;" />
+      <RadioButton fx:id="radioCelsius" layoutX="110.0" layoutY="200.0" mnemonicParsing="false" onAction="#onRadioCelsius" selected="true" text="Celsius" />
+      <RadioButton fx:id="radioFahrenheit" layoutX="184.0" layoutY="200.0" mnemonicParsing="false" onAction="#onRadioFahrenheit" text="Fahrenheit" />
+      <RadioButton fx:id="radioKelvin" layoutX="285.0" layoutY="200.0" mnemonicParsing="false" onAction="#onRadioKelvin" text="Kelvin" />
+      <Label fx:id="cityTemperature" layoutX="110.0" layoutY="229.0" text="Temperature: ">
+         <font>
+            <Font name="Britannic Bold" size="15.0" />
+         </font></Label>
+      <Label fx:id="cityPopulation" layoutX="110.0" layoutY="263.0" text="Population: ">
+         <font>
+            <Font name="Britannic Bold" size="15.0" />
+         </font></Label>
+      <CheckBox fx:id="checkerBoxVisible" layoutX="363.0" layoutY="200.0" mnemonicParsing="false" onAction="#onCheckerBox" text="Hide population" />
+      <Label layoutX="103.0" layoutY="97.0" text="Country:">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="103.0" layoutY="145.0" text="City:">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

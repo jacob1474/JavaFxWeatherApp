@@ -3,6 +3,7 @@ package sk.kasv.degro.worldappgui;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import sk.kasv.degro.worldappgui.database.Service;
 

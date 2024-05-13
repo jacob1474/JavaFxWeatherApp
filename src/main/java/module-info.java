@@ -2,6 +2,8 @@ module org.example.worldappgui {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires java.net.http;
+    requires org.json;
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
