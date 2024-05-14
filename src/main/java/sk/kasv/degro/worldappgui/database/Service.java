@@ -1,11 +1,8 @@
 package sk.kasv.degro.worldappgui.database;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
-import javafx.collections.ObservableList;
-import sk.kasv.degro.worldappgui.Util.ListConvertor;
 import sk.kasv.degro.worldappgui.model.Country;
 import sk.kasv.degro.worldappgui.model.City;
 
@@ -59,5 +56,37 @@ public class Service {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public static String getCountryOfficialLanguage(String countryCode) {
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            Repository repository = new Repository();
+
+            return repository.getCountryOfficialLanguage(connection, countryCode);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static List<Country> getCountriesByFirstLetter(String firstLetter) {
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            Repository repository = new Repository();
+
+            return repository.getCountriesByFirstLetter(connection, firstLetter);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -1,32 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.kasv.degro.worldappgui.HelloController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.kasv.degro.worldappgui.HelloController">
    <children>
-      <Label layoutX="185.0" layoutY="46.0" text="World Explorer" textAlignment="CENTER" textFill="#20d438">
+      <Label contentDisplay="CENTER" layoutX="194.0" layoutY="26.0" prefHeight="36.0" prefWidth="217.0" text="Open weather" textAlignment="CENTER" textFill="#20d438">
          <font>
             <Font name="Britannic Bold" size="35.0" />
          </font>
       </Label>
       <ChoiceBox fx:id="choiceBox" layoutX="204.0" layoutY="93.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: white; -fx-border-color: black;" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="180.0" layoutX="88.0" layoutY="189.0" stroke="BLACK" strokeType="INSIDE" width="424.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000001a" height="180.0" layoutX="313.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="252.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000001a" height="180.0" layoutX="24.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="252.0" />
       <ChoiceBox fx:id="choiceBoxTwo" layoutX="204.0" layoutY="141.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: white; -fx-border-color: black;" />
-      <RadioButton fx:id="radioCelsius" layoutX="110.0" layoutY="200.0" mnemonicParsing="false" onAction="#onRadioCelsius" selected="true" text="Celsius" />
-      <RadioButton fx:id="radioFahrenheit" layoutX="184.0" layoutY="200.0" mnemonicParsing="false" onAction="#onRadioFahrenheit" text="Fahrenheit" />
-      <RadioButton fx:id="radioKelvin" layoutX="285.0" layoutY="200.0" mnemonicParsing="false" onAction="#onRadioKelvin" text="Kelvin" />
-      <Label fx:id="cityTemperature" layoutX="110.0" layoutY="229.0" text="Temperature: ">
+      <RadioButton fx:id="radioCelsius" layoutX="36.0" layoutY="208.0" mnemonicParsing="false" onAction="#onRadioCelsius" selected="true" text="Celsius" />
+      <RadioButton fx:id="radioFahrenheit" layoutX="111.0" layoutY="208.0" mnemonicParsing="false" onAction="#onRadioFahrenheit" text="Fahrenheit" />
+      <RadioButton fx:id="radioKelvin" layoutX="204.0" layoutY="208.0" mnemonicParsing="false" onAction="#onRadioKelvin" text="Kelvin" />
+      <Label fx:id="cityTemperature" layoutX="36.0" layoutY="238.0" text="Temperature: ">
          <font>
             <Font name="Britannic Bold" size="15.0" />
          </font></Label>
-      <Label fx:id="cityPopulation" layoutX="110.0" layoutY="263.0" text="Population: ">
+      <Label fx:id="cityHumidity" layoutX="37.0" layoutY="309.0" text="Humidity: ">
          <font>
             <Font name="Britannic Bold" size="15.0" />
          </font></Label>
-      <CheckBox fx:id="checkerBoxVisible" layoutX="363.0" layoutY="200.0" mnemonicParsing="false" onAction="#onCheckerBox" text="Hide population" />
+      <Label fx:id="cityTemperatureFeel" layoutX="36.0" layoutY="262.0" text="Feels like: ">
+         <font>
+            <Font name="Britannic Bold" size="15.0" />
+         </font></Label>
+      <Label fx:id="cityWind" layoutX="36.0" layoutY="286.0" text="Wind: ">
+         <font>
+            <Font name="Britannic Bold" size="15.0" />
+         </font></Label>
+      <Label fx:id="cityPopulation" layoutX="323.0" layoutY="238.0" text="City population: ">
+         <font>
+            <Font name="Britannic Bold" size="15.0" />
+         </font></Label>
+      <Label fx:id="language" layoutX="323.0" layoutY="262.0" text="Language: ">
+         <font>
+            <Font name="Britannic Bold" size="15.0" />
+         </font></Label>
+      <Label fx:id="flag" layoutX="323.0" layoutY="286.0" text="Country flag: ">
+         <font>
+            <Font name="Britannic Bold" size="15.0" />
+         </font></Label>
+      <CheckBox fx:id="checkerBoxVisible" layoutX="323.0" layoutY="208.0" mnemonicParsing="false" onAction="#onCheckerBox" text="Hide population" />
       <Label layoutX="103.0" layoutY="97.0" text="Country:">
          <font>
             <Font name="Britannic Bold" size="19.0" />
@@ -37,5 +60,18 @@
             <Font name="Britannic Bold" size="19.0" />
          </font>
       </Label>
+      <ImageView fx:id="imageView" fitHeight="100.0" fitWidth="115.0" layoutX="161.0" layoutY="278.0" preserveRatio="true">
+         <effect>
+            <ColorAdjust brightness="0.19" contrast="0.32" />
+         </effect></ImageView>
+      <ImageView fx:id="imageViewMap" fitHeight="171.0" fitWidth="541.0" layoutX="24.0" layoutY="392.0" preserveRatio="true">
+         <effect>
+            <ColorAdjust brightness="0.19" contrast="0.32" />
+         </effect></ImageView>
+      <ImageView fx:id="imageViewFlag" fitHeight="85.0" fitWidth="151.0" layoutX="464.0" layoutY="300.0" preserveRatio="true">
+         <effect>
+            <ColorAdjust brightness="0.19" contrast="0.32" />
+         </effect></ImageView>
+        <TextField fx:id="textField" layoutX="431.0" layoutY="93.0" prefHeight="27.0" prefWidth="53.0" promptText="Search countries" style="-fx-background-color: white; -fx-border-color: black;" />
    </children>
 </Pane>
