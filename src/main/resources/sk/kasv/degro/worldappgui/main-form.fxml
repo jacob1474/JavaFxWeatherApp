@@ -9,6 +9,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.kasv.degro.worldappgui.HelloController">
    <children>
+      <Polyline fill="#282828" layoutX="32.0" layoutY="383.0" opacity="0.72" points="25.79998779296875, -40.0, 50.0, -40.0, 37.79998779296875, -13.79998779296875, 25.79998779296875, -40.0" strokeType="INSIDE" strokeWidth="0.2" />
       <Label contentDisplay="CENTER" layoutX="194.0" layoutY="26.0" prefHeight="36.0" prefWidth="217.0" text="Open weather" textAlignment="CENTER" textFill="#20d438">
          <font>
             <Font name="Britannic Bold" size="35.0" />
@@ -25,7 +26,7 @@
          <font>
             <Font name="Britannic Bold" size="15.0" />
          </font></Label>
-      <Label fx:id="cityHumidity" layoutX="37.0" layoutY="309.0" text="Humidity: ">
+      <Label fx:id="cityHumidity" layoutX="36.0" layoutY="286.0" text="Humidity: ">
          <font>
             <Font name="Britannic Bold" size="15.0" />
          </font></Label>
@@ -33,7 +34,7 @@
          <font>
             <Font name="Britannic Bold" size="15.0" />
          </font></Label>
-      <Label fx:id="cityWind" layoutX="36.0" layoutY="286.0" text="Wind: ">
+      <Label fx:id="cityWind" layoutX="36.0" layoutY="312.0" text="Wind: ">
          <font>
             <Font name="Britannic Bold" size="15.0" />
          </font></Label>
@@ -64,7 +65,7 @@
          <effect>
             <ColorAdjust brightness="0.19" contrast="0.32" />
          </effect></ImageView>
-      <ImageView fx:id="imageViewMap" fitHeight="171.0" fitWidth="541.0" layoutX="24.0" layoutY="392.0" preserveRatio="true">
+      <ImageView fx:id="imageViewMap" fitHeight="171.0" fitWidth="541.0" layoutX="24.0" layoutY="407.0" preserveRatio="true">
          <effect>
             <ColorAdjust brightness="0.19" contrast="0.32" />
          </effect></ImageView>
