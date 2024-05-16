@@ -29,6 +29,7 @@ public class HelloController {
     private String imageFlagUrl = "https://flagsapi.com/SK/flat/64.png";
     private ToggleGroup temperatureToogleGroup;
     private boolean isPopulationVisible = true;
+    private short choice = 0;
 
     @FXML
     private ChoiceBox<String> choiceBox;
@@ -54,6 +55,8 @@ public class HelloController {
     private ImageView imageView;
     @FXML
     private ImageView imageViewMap;
+    @FXML
+    private Label bixText;
     @FXML
     private ImageView imageViewFlag;
     @FXML
@@ -108,12 +111,23 @@ public class HelloController {
             temperatureFeelCelsius = ApiCaller.getTemperatureFeel(newValue, countries.get(choiceBox.getSelectionModel().getSelectedIndex()).getCode3());
             longitude = ApiCaller.getLongitude(newValue, countries.get(choiceBox.getSelectionModel().getSelectedIndex()).getCode3());
             latitude = ApiCaller.getLatitude(newValue, countries.get(choiceBox.getSelectionModel().getSelectedIndex()).getCode3());
-            cityTemperature.setText("Temperature: " + temperatureCelsius+"°C");
+            if(choice == 0){
+                cityTemperature.setText("Temperature: " + temperatureCelsius+"°C");
+                cityTemperatureFeel.setText("Temperature feels like: " + Rounder.round(temperatureFeelCelsius, 2)+"°C");  
+            }
+            else if(choice == 2){
+                cityTemperature.setText("Temperature: " + Rounder.round(temperatureCelsius * 9 / 5 + 32, 2)+"°F");
+                cityTemperatureFeel.setText("Temperature feels like: " + Rounder.round(temperatureFeelCelsius * 9 / 5 + 32, 2)+"°F");
+            }
+            else if(choice == 3){
+                cityTemperature.setText("Temperature: " + Rounder.round(temperatureCelsius + 273.15, 2)+"K");
+                cityTemperatureFeel.setText("Temperature feels like: " + Rounder.round(temperatureFeelCelsius + 273.15, 2)+"K"); 
+            }
             cityPopulation.setText("City population: " + PrettifyLargeNumber.prettifyNumber(Service.getCityPopulation(newValue)));
-            cityTemperatureFeel.setText("Temperature feels like: " + Rounder.round(temperatureFeelCelsius, 2)+"°C");
             cityWind.setText("Wind speed: " + Rounder.round(ApiCaller.getWindSpeed(newValue, countries.get(choiceBox.getSelectionModel().getSelectedIndex()).getCode3()), 2)+"m/s");
             cityHumidity.setText("Humidity: " + Rounder.round(ApiCaller.getHumidity(newValue, countries.get(choiceBox.getSelectionModel().getSelectedIndex()).getCode3()), 2)+"%");
             changeImage(null, 1, selectedCountry.get());
+            bixText.setText("Country: " + selectedCountry.get().getName() + " City: " + newValue);
         });
 
     }
@@ -135,16 +149,19 @@ public class HelloController {
     public void onRadioCelsius(ActionEvent actionEvent) {
         cityTemperature.setText("Temperature: " + Rounder.round(temperatureCelsius, 2)+"°C");
         cityTemperatureFeel.setText("Temperature feels like: " + Rounder.round(temperatureFeelCelsius, 2)+"°C");
+        choice =0;
     }
 
     public void onRadioFahrenheit(ActionEvent actionEvent) {
         cityTemperature.setText("Temperature: " + Rounder.round(temperatureCelsius * 9 / 5 + 32, 2)+"°F");
         cityTemperatureFeel.setText("Temperature feels like: " + Rounder.round(temperatureFeelCelsius * 9 / 5 + 32, 2)+"°F");
+        choice = 2;
     }
 
     public void onRadioKelvin(ActionEvent actionEvent) {
         cityTemperature.setText("Temperature: " + Rounder.round(temperatureCelsius + 273.15, 2)+"K");
         cityTemperatureFeel.setText("Temperature feels like: " + Rounder.round(temperatureFeelCelsius + 273.15, 2)+"K");
+        choice = 3;
     }
 
     public void changeImage(ActionEvent actionEvent, int num, Country selectedCountry) {

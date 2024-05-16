@@ -10,11 +10,11 @@ public class Service {
     private static final String URL = "jdbc:mysql://localhost:3306/world_x";
     private static final String USER = "user_x";
     private static final String PASSWORD = "password123";
+    private static Repository repository = Repository.getInstance();
 
     public static List<Country> getAllCountries() {
         try {
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            Repository repository = new Repository();
 
             return repository.getAllCountries(connection);
         } catch (SQLException e) {
@@ -29,7 +29,6 @@ public class Service {
         System.out.println(countryCode);
         try {
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            Repository repository = new Repository();
 
             return repository.getAllCitiesByCountry(connection, countryCode);
         }
@@ -45,7 +44,6 @@ public class Service {
     public static int getCityPopulation(String cityName) {
         try {
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            Repository repository = new Repository();
 
             return repository.getCityPopulation(connection, cityName);
         }
@@ -61,7 +59,6 @@ public class Service {
     public static String getCountryOfficialLanguage(String countryCode) {
         try {
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            Repository repository = new Repository();
 
             return repository.getCountryOfficialLanguage(connection, countryCode);
         }
@@ -77,7 +74,6 @@ public class Service {
     public static List<Country> getCountriesByFirstLetter(String firstLetter) {
         try {
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            Repository repository = new Repository();
 
             return repository.getCountriesByFirstLetter(connection, firstLetter);
         }

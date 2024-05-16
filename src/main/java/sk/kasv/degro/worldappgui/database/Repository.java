@@ -9,12 +9,27 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// Singelton class
+
 public class Repository {
     private static final String SELECT_ALL_COUNTRIES = "SELECT * FROM country ORDER BY Name ASC;";
     private static final String SELECT_ALL_CITIES_BY_COUNTRY = "SELECT * FROM city WHERE CountryCode = ?;";
     private static final String SELECT_CITY_POPULATION = "SELECT JSON_VALUE(Info, '$.Population') AS Info FROM city WHERE Name = ?;";
     private static final String SELECT_COUNTRY_BY_FIRST_LETTER = "SELECT * FROM country WHERE Name LIKE ?;";
     private static final String SELECT_COUNTRY_OFFICIAL_LANGUAGE = "SELECT Language FROM countrylanguage WHERE CountryCode = ? AND IsOfficial = 'T';";
+    private static Repository instance;
+
+    private Repository() {
+    }
+
+    public static Repository getInstance() {
+        if (instance == null) {
+            instance = new Repository();
+        }
+
+        return instance;
+    }
 
     public List<Country> getAllCountries(Connection connection) throws Exception {
         PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_COUNTRIES);
