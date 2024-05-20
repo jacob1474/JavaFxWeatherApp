@@ -39,6 +39,34 @@ public class ApiCaller {
         return 0;
     }
 
+    public static int getWindDirection(String city, String countryCode3){
+        city = CityNameEditor.editCityName(city);
+        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=b4358eb8138f20206a7c5da7eac59a57");
+        var client = HttpClient.newHttpClient();
+        var request = HttpRequest
+                .newBuilder()
+                .uri(uri)
+                .header("accept", "application/json")
+                .GET()
+                .build();
+        HttpResponse<String> response;
+        try {
+            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            int statusCode = response.statusCode();
+            if (statusCode == 200) {
+                JSONObject jsonResponse = new JSONObject(response.body());
+                JSONObject wind = jsonResponse.getJSONObject("wind");
+                int windDeg = wind.getInt("deg");
+                return windDeg;
+            } else {
+                System.out.println("Request failed with status code: " + statusCode);
+            }
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
     public static double getHumidity(String city, String countryCode3) {
         city = CityNameEditor.editCityName(city);
         var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=b4358eb8138f20206a7c5da7eac59a57");

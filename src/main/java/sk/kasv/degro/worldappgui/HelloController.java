@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Polyline;
 import sk.kasv.degro.worldappgui.Util.ListConvertor;
 import sk.kasv.degro.worldappgui.Util.PrettifyLargeNumber;
 import sk.kasv.degro.worldappgui.Util.Rounder;
@@ -56,7 +57,7 @@ public class HelloController {
     @FXML
     private ImageView imageViewMap;
     @FXML
-    private Label bixText;
+    private Label bigText;
     @FXML
     private ImageView imageViewFlag;
     @FXML
@@ -65,6 +66,10 @@ public class HelloController {
     private Label language;
     @FXML
     private TextField textField;
+    @FXML
+    private Polyline compass;
+    @FXML
+    private ProgressBar humidityProgressBar;
 
     public void initialize() {
         List<Country> countries = Service.getAllCountries();
@@ -125,9 +130,11 @@ public class HelloController {
             }
             cityPopulation.setText("City population: " + PrettifyLargeNumber.prettifyNumber(Service.getCityPopulation(newValue)));
             cityWind.setText("Wind speed: " + Rounder.round(ApiCaller.getWindSpeed(newValue, countries.get(choiceBox.getSelectionModel().getSelectedIndex()).getCode3()), 2)+"m/s");
-            cityHumidity.setText("Humidity: " + Rounder.round(ApiCaller.getHumidity(newValue, countries.get(choiceBox.getSelectionModel().getSelectedIndex()).getCode3()), 2)+"%");
-            changeImage(null, 1, selectedCountry.get());
-            bixText.setText("Country: " + selectedCountry.get().getName() + " City: " + newValue);
+            cityHumidity.setText("Humidity:                       " + Rounder.round(ApiCaller.getHumidity(newValue, countries.get(choiceBox.getSelectionModel().getSelectedIndex()).getCode3()), 2)+"%");
+            humidityProgressBar.setProgress(ApiCaller.getHumidity(newValue, countries.get(choiceBox.getSelectionModel().getSelectedIndex()).getCode3())/100);
+            changeImage(null, 1, selectedCountry.get()); 
+            bigText.setText("Selected: " + selectedCountry.get().getName()+", " + newValue);
+            compass.setRotate(ApiCaller.getWindDirection(newValue, countries.get(choiceBox.getSelectionModel().getSelectedIndex()).getCode3()));
         });
 
     }
