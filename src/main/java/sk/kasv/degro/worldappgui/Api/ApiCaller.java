@@ -12,7 +12,7 @@ import sk.kasv.degro.worldappgui.Util.CityNameEditor;
 public class ApiCaller {
     public static double getTemperature(String city, String countryCode3) {
         city = CityNameEditor.editCityName(city);
-        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=b4358eb8138f20206a7c5da7eac59a57");
+        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=<your_open_weather_api_key>");
         var client = HttpClient.newHttpClient();
         System.out.println("Sending request to: " + uri);
         var request = HttpRequest
@@ -41,7 +41,7 @@ public class ApiCaller {
 
     public static int getWindDirection(String city, String countryCode3){
         city = CityNameEditor.editCityName(city);
-        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=b4358eb8138f20206a7c5da7eac59a57");
+        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=<your_open_weather_api_key>");
         var client = HttpClient.newHttpClient();
         var request = HttpRequest
                 .newBuilder()
@@ -69,7 +69,7 @@ public class ApiCaller {
 
     public static double getHumidity(String city, String countryCode3) {
         city = CityNameEditor.editCityName(city);
-        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=b4358eb8138f20206a7c5da7eac59a57");
+        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=<your_open_weather_api_key>");
         var client = HttpClient.newHttpClient();
         var request = HttpRequest
                 .newBuilder()
@@ -97,7 +97,7 @@ public class ApiCaller {
 
     public static double getWindSpeed(String city, String countryCode3) {
         city = CityNameEditor.editCityName(city);
-        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=b4358eb8138f20206a7c5da7eac59a57");
+        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=<your_open_weather_api_key>");
         var client = HttpClient.newHttpClient();
         var request = HttpRequest
                 .newBuilder()
@@ -125,7 +125,7 @@ public class ApiCaller {
 
     public static String getWeatherInfo(String city, String countryCode3) {
         city = CityNameEditor.editCityName(city);
-        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=b4358eb8138f20206a7c5da7eac59a57");
+        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=<your_open_weather_api_key>");
         var client = HttpClient.newHttpClient();
         var request = HttpRequest
                 .newBuilder()
@@ -153,7 +153,7 @@ public class ApiCaller {
 
     public static double getTemperatureFeel(String city, String countryCode3){
         city = CityNameEditor.editCityName(city);
-        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=b4358eb8138f20206a7c5da7eac59a57");
+        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=<your_open_weather_api_key>");
         var client = HttpClient.newHttpClient();
         var request = HttpRequest
                 .newBuilder()
@@ -181,7 +181,7 @@ public class ApiCaller {
 
     public static String getWeatherIcon(String city, String countryCode3){
         city = CityNameEditor.editCityName(city);
-        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=b4358eb8138f20206a7c5da7eac59a57");
+        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=<your_open_weather_api_key>");
         var client = HttpClient.newHttpClient();
         var request = HttpRequest
                 .newBuilder()
@@ -209,7 +209,7 @@ public class ApiCaller {
 
     public static double getLongitude(String city, String countryCode3) {
         city = CityNameEditor.editCityName(city);
-        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=b4358eb8138f20206a7c5da7eac59a57");
+        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=<your_open_weather_api_key>");
         var client = HttpClient.newHttpClient();
         var request = HttpRequest
                 .newBuilder()
@@ -237,7 +237,7 @@ public class ApiCaller {
 
     public static double getLatitude(String city, String countryCode3) {
         city = CityNameEditor.editCityName(city);
-        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=b4358eb8138f20206a7c5da7eac59a57");
+        var uri = URI.create("https://api.openweathermap.org/data/2.5/weather?q="+city+","+countryCode3+"&units=metric&appid=<your_open_weather_api_key>");
         var client = HttpClient.newHttpClient();
         var request = HttpRequest
                 .newBuilder()
